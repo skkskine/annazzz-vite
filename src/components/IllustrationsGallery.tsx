@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import type { Illustration } from "../interfaces/Illustrations";
+import { getImagePath } from "../utils/utils";
 
 export default function IllustrationGallery({
   illustrations,
@@ -8,7 +9,6 @@ export default function IllustrationGallery({
   illustrations: Illustration[];
   cols?: number;
 }) {
-  const imgRemoteUrl = import.meta.env.VITE_PAYLOAD_REMOTE_URL;
   const gridStyle = "grid gap-4 " + setGridCols(cols);
 
   const illuGallery = illustrations?.map((illu, idx) => {
@@ -21,8 +21,9 @@ export default function IllustrationGallery({
       >
         <Link to={illu.slug}>
           <img
-            src={imgRemoteUrl + illu.images[0].image.url}
+            src={getImagePath(illu.images[0].image.url)}
             alt={illu.images[0].image.alt}
+            className="h-full"
             onLoad={() => {
               const element = document.querySelector(".gallery-element-" + idx);
               element?.classList.remove("opacity-0");
@@ -40,15 +41,12 @@ export default function IllustrationGallery({
 function setGridCols(cols: number) {
   switch (cols) {
     case 2:
-      return "grid-cols-2";
-      break;
+      return "md:grid-cols-2";
     case 3:
-      return "grid-cols-3";
-      break;
+      return "md:grid-cols-3";
     case 4:
-      return "grid-cols-4";
-      break;
+      return "md:grid-cols-4";
     default:
-      return "grid-cols-4";
+      return "md:grid-cols-4";
   }
 }
