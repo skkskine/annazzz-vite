@@ -13,23 +13,26 @@ export default function About() {
 
   if (aboutDesc) {
     return (
-      <div className="md:flex md:justify-between">
-        <div className="pr-4 mb-4">
-          {aboutDesc !== undefined ? <RichText data={aboutDesc.text} /> : ""}
-        </div>
+      <div className="md:grid md:grid-cols-2">
         <img
           id="about-img"
           className="opacity-0 transition-opacity duration-500 w-full"
           src={getImagePath(aboutDesc.image.url)}
-          onLoad={() => {
-            const element = document.querySelector("#about-img");
-            element?.classList.remove("opacity-0");
-            element?.classList.add("opacity-100");
-          }}
+          alt={aboutDesc.image.alt}
+          onLoad={() => showImg()}
         ></img>
+        <div className="md:pl-4 mt-4 md:mt-0">
+          <RichText data={aboutDesc.text} />
+        </div>
       </div>
     );
   }
 
   return <></>;
+}
+
+function showImg() {
+  const element = document.querySelector("#about-img");
+  element?.classList.remove("opacity-0");
+  element?.classList.add("opacity-100");
 }

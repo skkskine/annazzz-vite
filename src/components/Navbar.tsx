@@ -15,13 +15,16 @@ export default function Navbar() {
       ></div>
       <div id="menu" className={menuMobileClasses + " " + menuDesktopClasses}>
         <Link to="/" onClick={() => closeMenu()} className="md:hidden">
-          Annazzz
+          Home
         </Link>
         <Link to="/illustrations" onClick={() => closeMenu()}>
           Illustrazioni
         </Link>
         <Link to="/about" onClick={() => closeMenu()}>
-          About
+          Bio
+        </Link>
+        <Link to="/contacts" onClick={() => closeMenu()}>
+          Contatti
         </Link>
         <div
           className="md:hidden hover:cursor-pointer absolute top-6 right-5"

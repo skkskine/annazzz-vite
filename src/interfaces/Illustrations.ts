@@ -5,7 +5,7 @@ interface PayloadArtifact {
   slug: string;
 }
 
-export interface Media {
+interface Media {
   id: string;
   image: {
     id: string;

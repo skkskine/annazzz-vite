@@ -36,7 +36,7 @@ export default function IllustrationDetail() {
           {illustration.images.map((img, idx) => {
             return (
               <img
-                key={idx}
+                key={img.id}
                 className={
                   "image-" +
                   idx +
@@ -44,11 +44,7 @@ export default function IllustrationDetail() {
                 }
                 src={getImagePath(img.image.url)}
                 alt={img.image.alt}
-                onLoad={() => {
-                  const element = document.querySelector(".image-" + idx);
-                  element?.classList.remove("opacity-0");
-                  element?.classList.add("opacity-100");
-                }}
+                onLoad={() => showImg(idx)}
               ></img>
             );
           })}
@@ -58,4 +54,10 @@ export default function IllustrationDetail() {
   }
 
   return <></>;
+}
+
+function showImg(idx: number) {
+  const element = document.querySelector(".image-" + idx);
+  element?.classList.remove("opacity-0");
+  element?.classList.add("opacity-100");
 }

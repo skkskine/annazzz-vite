@@ -14,7 +14,7 @@ export default function IllustrationGallery({
   const illuGallery = illustrations?.map((illu, idx) => {
     return (
       <div
-        key={idx}
+        key={illu.id}
         className={
           "opacity-0 transition-opacity duration-500 gallery-element-" + idx
         }
@@ -24,11 +24,7 @@ export default function IllustrationGallery({
             src={getImagePath(illu.images[0].image.url)}
             alt={illu.images[0].image.alt}
             className="h-full"
-            onLoad={() => {
-              const element = document.querySelector(".gallery-element-" + idx);
-              element?.classList.remove("opacity-0");
-              element?.classList.add("opacity-100");
-            }}
+            onLoad={() => showImg(idx)}
           ></img>
         </Link>
       </div>
@@ -36,6 +32,12 @@ export default function IllustrationGallery({
   });
 
   return <div className={gridStyle}>{illuGallery}</div>;
+}
+
+function showImg(idx: number) {
+  const element = document.querySelector(".gallery-element-" + idx);
+  element?.classList.remove("opacity-0");
+  element?.classList.add("opacity-100");
 }
 
 function setGridCols(cols: number) {
