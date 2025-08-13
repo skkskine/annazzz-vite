@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const menuMobileClasses =
-    "transition-opacity duration-500 bg-white justify-center fixed items-center flex -z-10 left-0 top-0 flex-col opacity-0  w-screen h-screen text-lg";
+    "transition-opacity duration-500 bg-white justify-center fixed items-center flex -z-10 left-0 top-0 flex-col opacity-0  w-screen h-screen text-xl";
   const menuDesktopClasses =
     "*:md:ml-5 md:opacity-100 md:visible md:relative md:block md:w-auto md:h-auto md:z-0 md:text-base";
 
@@ -10,7 +10,7 @@ export default function Navbar() {
     <nav className="flex justify-between py-4">
       <Link to="/">
         <img
-          className="h-8"
+          className="w-55 pr-5"
           src="/annazzzlogo.png"
           alt="logo Anna Zampatti"
         ></img>

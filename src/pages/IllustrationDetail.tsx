@@ -36,7 +36,7 @@ export default function IllustrationDetail() {
     );
     return (
       <div className="md:flex">
-        <div className="px-4  md:hidden mb-4 md:mb-0">{titleAndDesc}</div>
+        <div className="md:px-4  md:hidden mb-4 md:mb-0">{titleAndDesc}</div>
         <div className="md:max-w-6/10">
           {illustration.images.map((img, idx) => {
             return (
