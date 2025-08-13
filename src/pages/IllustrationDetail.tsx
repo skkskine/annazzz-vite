@@ -27,12 +27,17 @@ export default function IllustrationDetail() {
   }, [illustration?.id, query]);
 
   if (illustration) {
-    return (
+    const titleAndDesc = (
       <>
+        <h1 className="text-2xl">{illustration.name}</h1>
+        <p className="text-sm italic mb-1">{illustration.year}</p>
+        <RichText data={illustration.richDesc}></RichText>
+      </>
+    );
+    return (
+      <div className="md:flex">
+        <div className="px-4  md:hidden mb-4 md:mb-0">{titleAndDesc}</div>
         <div className="md:max-w-6/10">
-          <h1 className="text-xl">{illustration.name}</h1>
-          <p className="text-sm italic mb-1">{illustration.year}</p>
-          <RichText data={illustration.richDesc}></RichText>
           {illustration.images.map((img, idx) => {
             return (
               <img
@@ -40,7 +45,7 @@ export default function IllustrationDetail() {
                 className={
                   "image-" +
                   idx +
-                  " w-full my-6 opacity-0 transition-opacity duration-700"
+                  " w-full mb-6 opacity-0 transition-opacity duration-700"
                 }
                 src={getImagePath(img.image.url)}
                 alt={img.image.alt}
@@ -49,7 +54,8 @@ export default function IllustrationDetail() {
             );
           })}
         </div>
-      </>
+        <div className="px-4 hidden md:block">{titleAndDesc}</div>
+      </div>
     );
   }
 

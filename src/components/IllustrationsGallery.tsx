@@ -4,13 +4,9 @@ import { getImagePath } from "../utils/utils";
 
 export default function IllustrationGallery({
   illustrations,
-  cols = 4,
 }: {
   illustrations: Illustration[];
-  cols?: number;
 }) {
-  const gridStyle = "grid gap-4 " + setGridCols(cols);
-
   const illuGallery = illustrations?.map((illu, idx) => {
     return (
       <div
@@ -23,7 +19,6 @@ export default function IllustrationGallery({
           <img
             src={getImagePath(illu.images[0].image.url)}
             alt={illu.images[0].image.alt}
-            className="h-full"
             onLoad={() => showImg(idx)}
           ></img>
         </Link>
@@ -31,24 +26,11 @@ export default function IllustrationGallery({
     );
   });
 
-  return <div className={gridStyle}>{illuGallery}</div>;
+  return <div className="md:[column-count:4]">{illuGallery}</div>;
 }
 
 function showImg(idx: number) {
   const element = document.querySelector(".gallery-element-" + idx);
   element?.classList.remove("opacity-0");
   element?.classList.add("opacity-100");
-}
-
-function setGridCols(cols: number) {
-  switch (cols) {
-    case 2:
-      return "md:grid-cols-2";
-    case 3:
-      return "md:grid-cols-3";
-    case 4:
-      return "md:grid-cols-4";
-    default:
-      return "md:grid-cols-4";
-  }
 }
