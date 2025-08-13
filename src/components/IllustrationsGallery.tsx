@@ -12,7 +12,8 @@ export default function IllustrationGallery({
       <div
         key={illu.id}
         className={
-          "opacity-0 transition-opacity duration-500 gallery-element-" + idx
+          "opacity-0 transition-opacity duration-500 my-5 gallery-element-" +
+          idx
         }
       >
         <Link to={illu.slug}>
