@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <footer className="flex justify-center items-center py-4 text-sm">
-      Annazzz - {new Date().getFullYear()} - Code by&nbsp;
+      Anna Zampatti - {new Date().getFullYear()} - Code by&nbsp;
       <Link to="https://www.instagram.com/swarming_sky/" target="_blank">
         . ݁₊ ⊹ . ݁ ⟡ ݁ . ⊹ ₊ ݁.
       </Link>

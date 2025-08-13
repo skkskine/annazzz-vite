@@ -2,13 +2,19 @@ import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const menuMobileClasses =
-    "transition-opacity duration-500 bg-white justify-center fixed items-center flex -z-10 left-0 top-0 flex-col opacity-0  w-screen h-screen";
+    "transition-opacity duration-500 bg-white justify-center fixed items-center flex -z-10 left-0 top-0 flex-col opacity-0  w-screen h-screen text-lg";
   const menuDesktopClasses =
-    "*:md:ml-5 md:opacity-100 md:visible md:relative md:block md:w-auto md:h-auto md:z-0";
+    "*:md:ml-5 md:opacity-100 md:visible md:relative md:block md:w-auto md:h-auto md:z-0 md:text-base";
 
   return (
     <nav className="flex justify-between py-4">
-      <Link to="/">Annazzz</Link>
+      <Link to="/">
+        <img
+          className="h-8"
+          src="/annazzzlogo.png"
+          alt="logo Anna Zampatti"
+        ></img>
+      </Link>
       <div
         className="hover:cursor-pointer md:hidden size-5 border-3 rounded-full border-gray-600"
         onClick={() => openMenu()}

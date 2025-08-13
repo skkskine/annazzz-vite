@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+@layer base {
+  .payload-richtext a {
+    text-decoration: underline;
+  }
+}
