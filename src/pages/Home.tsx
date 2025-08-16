@@ -11,22 +11,18 @@ export default function Home() {
     getApi("globals/homepage").then((res) => setHomepage(res));
   }, [homepage?.id]);
 
-  if (homepage) {
-    return (
-      <div className="flex justify-center items-center h-full">
-        <Link to="illustrations" className="w-full md:max-w-[40%]">
-          <img
-            id="home-img"
-            className="opacity-0 transition-opacity duration-500"
-            src={getImagePath(homepage.image.url)}
-            onLoad={() => showImg()}
-          ></img>
-        </Link>
-      </div>
-    );
-  }
-
-  return <></>;
+  return (
+    <div className="flex justify-center items-center h-full">
+      <Link to="illustrations" className="w-full md:max-w-[40%]">
+        <img
+          id="home-img"
+          className="opacity-0 transition-opacity duration-800"
+          src="/annazzz-bg.png"
+          onLoad={() => showImg()}
+        ></img>
+      </Link>
+    </div>
+  );
 }
 
 function showImg() {
