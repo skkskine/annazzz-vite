@@ -1,14 +1,17 @@
-import { useEffect, useState } from "react";
 import { getApi } from "../../api/api";
-import type { Illustration } from "../interfaces/Illustrations.tsx";
 import IllustrationGallery from "../components/IllustrationsGallery.tsx";
+import { useQuery } from "@tanstack/react-query";
+import Loader from "../components/Loader.tsx";
 
 export default function Illustrations() {
-  const [illustrations, setIllustrations] = useState<Illustration[]>([]);
+  const { data: illustrations, isLoading } = useQuery({
+    queryKey: ["illustrations"],
+    queryFn: () => getApi("disegni"),
+  });
 
-  useEffect(() => {
-    getApi("disegni").then((res) => setIllustrations(res));
-  }, []);
+  if (isLoading) {
+    return <Loader></Loader>;
+  }
 
   return (
     <>

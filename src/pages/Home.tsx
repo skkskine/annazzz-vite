@@ -1,14 +1,13 @@
-import { useEffect, useState } from "react";
 import { getApi } from "../../api/api";
-import type { Homepage } from "../interfaces/Homepage";
 import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 
 export default function Home() {
-  const [homepage, setHomepage] = useState<Homepage | undefined>(undefined);
-
-  useEffect(() => {
-    getApi("globals/homepage").then((res) => setHomepage(res));
-  }, [homepage?.id]);
+  // call this api to wake Vercel sleepy service (free cloud delights......)
+  useQuery({
+    queryKey: ["homepage"],
+    queryFn: () => getApi("globals/homepage"),
+  });
 
   return (
     <div className="flex justify-center items-center h-full">

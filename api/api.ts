@@ -16,7 +16,9 @@ export async function getApi(endpoint: string, query?: string) {
       };
     }
     const formattedResponse = await res.json();
-    return formattedResponse.docs ? formattedResponse.docs : formattedResponse;
+    return Promise.resolve(
+      formattedResponse.docs ? formattedResponse.docs : formattedResponse
+    );
   } catch (err) {
     console.error("Error:", err);
     return {
