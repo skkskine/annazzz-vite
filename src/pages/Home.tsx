@@ -15,7 +15,7 @@ export default function Home() {
         <img
           id="home-img"
           className="opacity-0 transition-opacity duration-800"
-          src="/annazzz-bg.png"
+          src="/annazzz-bg.jpg"
           onLoad={() => showImg()}
         ></img>
       </Link>
