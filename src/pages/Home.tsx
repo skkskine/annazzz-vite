@@ -3,10 +3,9 @@ import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 
 export default function Home() {
-  // call this api to wake Vercel sleepy service (free cloud delights......)
   useQuery({
-    queryKey: ["homepage"],
-    queryFn: () => getApi("globals/homepage"),
+    queryKey: ["illustrations"],
+    queryFn: () => getApi("disegni"),
   });
 
   return (

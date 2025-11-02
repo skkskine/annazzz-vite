@@ -18,8 +18,8 @@ export default function IllustrationGallery({
       >
         <Link to={illu.slug}>
           <img
-            src={getImagePath(illu.images[0].image.url)}
-            alt={illu.images[0].image.alt}
+            src={getImagePath(illu.images[0]?.image.url)}
+            alt={illu.images[0]?.image.alt}
             className="hover:scale-102 transition-transform duration-250"
             onLoad={() => showImg(idx)}
           ></img>
