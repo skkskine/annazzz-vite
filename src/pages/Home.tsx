@@ -2,6 +2,7 @@ import { getApi } from "../../api/api";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import type { Illustration } from "../interfaces/Illustrations";
+import { getImagePath } from "../utils/utils";
 
 export default function Home() {
   // preload and cache all the illustration images
@@ -13,7 +14,7 @@ export default function Home() {
 
   data?.forEach((illustration) => {
     const img = new Image();
-    img.src = illustration.images[0].image.url;
+    img.src = getImagePath(illustration.images[0].image.url);
   });
 
   return (
