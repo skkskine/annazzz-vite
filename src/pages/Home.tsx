@@ -1,11 +1,19 @@
 import { getApi } from "../../api/api";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
+import type { Illustration } from "../interfaces/Illustrations";
 
 export default function Home() {
-  useQuery({
+  // preload and cache all the illustration images
+
+  const { data } = useQuery<Illustration[]>({
     queryKey: ["illustrations"],
     queryFn: () => getApi("disegni"),
+  });
+
+  data?.forEach((illustration) => {
+    const img = new Image();
+    img.src = illustration.images[0].image.url;
   });
 
   return (
