@@ -19,11 +19,11 @@ export default function Home() {
 
   return (
     <div className="flex justify-center items-center h-full">
-      <Link to="illustrations" className="w-full md:max-w-[40%]">
+      <Link to="illustrations" className="w-full md:max-w-[60%] -mt-20">
         <img
           id="home-img"
           className="opacity-0 transition-opacity duration-800"
-          src="/annazzz-bg.jpg"
+          src="/homepage-anim.gif"
           onLoad={() => showImg()}
         ></img>
       </Link>
