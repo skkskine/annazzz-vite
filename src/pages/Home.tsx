@@ -19,7 +19,10 @@ export default function Home() {
 
   return (
     <div className="flex justify-center items-center h-full">
-      <Link to="illustrations" className="w-full md:max-w-[60%] -mt-20">
+      <Link
+        to="illustrations"
+        className="w-full md:max-w-[60%] flex justify-center"
+      >
         <img
           id="home-img"
           className="opacity-0 transition-opacity duration-800"
